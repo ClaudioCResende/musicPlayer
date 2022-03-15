@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:linear-gradient(120deg, rgb(219, 235, 2), rgb(23, 94, 248));
+    height:100vh;
+    width:100%;
+}
+
+.container{
+    height:85vh;
+    width:100%;
+    max-width:400px;
+    background: #ffffff6b;
+    backdrop-filter: blur(5px);
+    border-radius:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 5px 3px 2px rgba(0, 0, 0, 0.616);
+    border-radius: 50%;
+}
+
+img{
+    width:250px;
+    height:250px;
+    animation: spin 4s infinite linear;
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+
+
+.music-info{
+    margin-top: 25px;
+    width:90%;
+    height:70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    font-size: calc(100% + 3px);
+
+}
+
+.fa-regular.fa-heart{
+    font-size: 2rem;
+    padding: 5px; 
+    cursor:pointer; 
+}
+
+.fa-regular.fa-heart:hover{
+    
+}
+
+.music-time{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.music-time input{
+    width: 100%;
+}
+
+
+
+.music-time .time-info{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.music-controls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:90%;
+}
+
+.music-controls i{
+    padding: 15px;
+    font-size: 2.2rem;
+    cursor: pointer;
+}
+
+.music-controls i:first-child{
+    padding-right:50px ;
+    padding-left: 0;
+}
+
+.music-controls i:last-child{
+    padding-left:50px ;
+    padding-right: 0;
+}
+
+.fa-solid.fa-circle-pause{
+    font-size: 3rem;
+}
+
+
