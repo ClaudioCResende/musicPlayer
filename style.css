@@ -34,9 +34,14 @@ body{
     border-radius: 50%;
 }
 
-img{
+.music-image{
     width:250px;
     height:250px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.spin-animation{
     animation: spin 4s infinite linear;
 }
 
@@ -80,13 +85,24 @@ img{
     align-items: center;
     margin-bottom: 10px;
 }
-
 .music-time input{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
     width: 100%;
+    overflow: hidden;
+    background-position: left;
+    background-color: #000000ad;
 }
 
-
-
+input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 10px;;
+    background-color: blueviolet;
+    transition:.3s ease
+}
 .music-time .time-info{
     width:100%;
     display: flex;
@@ -96,27 +112,16 @@ img{
 .music-controls{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width:90%;
 }
 
 .music-controls i{
-    padding: 15px;
     font-size: 2.2rem;
     cursor: pointer;
 }
 
-.music-controls i:first-child{
-    padding-right:50px ;
-    padding-left: 0;
-}
-
-.music-controls i:last-child{
-    padding-left:50px ;
-    padding-right: 0;
-}
-
-.fa-solid.fa-circle-pause{
+.fa-solid.fa-circle-pause, .fa-solid.fa-circle-play{
     font-size: 3rem;
 }
 

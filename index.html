@@ -12,28 +12,28 @@
     <body>
         <div class="container">
             <div class="imagem">
-                <img src="picture1.webp">
+                <img class="music-image" src="">
             </div>
             <div class="music-info">
                 <div class="nomes-info">
-                    <h2>Poze do Rodo</h2>
-                    <h3>A Cara do crime</h3>
+                    <h2 class="artist-name">Poze do Rodo</h2>
+                    <h3 class="music-name">A Cara do crime</h3>
                 </div>
                 <div class="like-icon"><i class="fa-regular fa-heart"></i></div>
             </div>
             <div class="music-time">
-                <input type="range" name="time" id="time" >
+                <input type="range" min="1" max="100" value="0" name="time" id="time" >
                 <div class="time-info">
-                    <span class="tempo-atual">0:00</span>
-                    <span class="tempo-total">4:33</span>
+                    <span class="current-time">0:00</span>
+                    <span class="total-time">4:33</span>
                 </div>
             </div>
             <div class="music-controls">
-                <i class="fa-solid fa-shuffle"></i>
-                <i class="fa-solid fa-backward-step"></i>
-                <i class="fa-solid fa-circle-pause"></i>
-                <i class="fa-solid fa-forward-step"></i>
-                <i class="fa-solid fa-rotate-left"></i>
+                <div class="random-btn"><i class="fa-solid fa-random"></i></div>
+                <div class="previous-btn"><i class="fa-solid fa-backward-step"></i></div>
+                <div class="playpause-btn"><i class="fa-solid fa-circle-play" id="playpause"></i></div>
+                <div class="next-btn"><i class="fa-solid fa-forward-step"></i></div>
+                <div class="repeat-btn"><i class="fa-solid fa-rotate-left"></i></div>
             </div>
         </div>
 
