@@ -19,6 +19,8 @@ let isRandom = false;
 let isPlaying = false;
 let updateTimer;
 
+
+
 const musicList = [
     {
         name:"Vida Louca",
@@ -53,16 +55,16 @@ loadSong(musicIndex);
 
 function loadSong(musicIndex){
     clearInterval(updateTimer);
-    reset();
+    
 
     currentMusic.src = musicList[musicIndex].music;
-    currentMusic.load();
+    
 
     artistName.textContent = musicList[musicIndex].artist;
     musicName.textContent = musicList[musicIndex].name;
     musicImage.src = musicList[musicIndex].image;
 
-    updateTimer = setInterval(setUpdate, 100);
+    updateTimer = setInterval(setUpdate, 500);
 
     currentMusic.addEventListener('ended', nextSong);
     randomBackgoundColor();
@@ -173,7 +175,7 @@ function setUpdate(){
     if(!isNaN(currentMusic.duration)) {
         sliderPosition = currentMusic.currentTime * (100 / currentMusic.duration);
         timeSlider.value = sliderPosition;
-        timeSlider.style.background = "linear-gradient(120deg, #000000ad " + timeSlider.value + "%, transparent " + timeSlider.value + "%)"; 
+        timeSlider.style.boxShadow = "inset " + timeSlider.value + "% 0px 5px black";
 
         let currentMinutes = Math.floor(currentMusic.currentTime / 60);
         let currentSeconds = Math.floor(currentMusic.currentTime - currentMinutes * 60);
