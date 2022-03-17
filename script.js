@@ -62,7 +62,7 @@ function loadSong(musicIndex){
     musicName.textContent = musicList[musicIndex].name;
     musicImage.src = musicList[musicIndex].image;
 
-    updateTimer = setInterval(setUpdate, 1000);
+    updateTimer = setInterval(setUpdate, 100);
 
     currentMusic.addEventListener('ended', nextSong);
     randomBackgoundColor();
@@ -98,22 +98,17 @@ function randomSong(){
 function playRandom(){
     isRandom = true;
     btnRandom.classList.add('randomActive');
-    loadSong(musicIndex);
-    console.log('play random');
 }
 
 function pauseRandom(){
     isRandom = false;
     btnRandom.classList.remove('randomActive');
-    console.log('pause random');
-
 }
 
 function repeatSong(){
     let currentIndex = musicIndex;
     loadSong(currentIndex);
     playSong();
-    console.log('repeat Song');
 }
 
 function playpauseSong(){
@@ -123,6 +118,7 @@ function playpauseSong(){
 function playSong(){
     isPlaying = true;
     currentMusic.play();
+
     musicImage.classList.add('spin-animation');
     btnPlayPause.innerHTML =' <i class="fa-solid fa-circle-pause" id="playpause"></i>'
     
@@ -131,14 +127,13 @@ function playSong(){
 function pauseSong(){
     isPlaying = false;
     currentMusic.pause();
+
     musicImage.classList.remove('spin-animation');
     btnPlayPause.innerHTML = '';
     btnPlayPause.innerHTML =' <i class="fa-solid fa-circle-play" id="playpause"></i>'
-
 }
 
 function nextSong(){
-    console.log('next song');
     if(musicIndex < musicList.length -1 && isRandom === false){
         musicIndex +=1;
     }
@@ -148,12 +143,12 @@ function nextSong(){
     else{
         musicIndex = 0;
     }
+
     loadSong(musicIndex);
     playSong();
 }
 
 function previousSong() {
-    console.log('prev song');
     if(musicIndex > 0 && isRandom === false){
         musicIndex -= 1;
     }
@@ -163,6 +158,7 @@ function previousSong() {
     else{
         musicIndex = musicList.length - 1;
     }
+
     loadSong(musicIndex);
     playSong();
 }
@@ -177,20 +173,20 @@ function setUpdate(){
     if(!isNaN(currentMusic.duration)) {
         sliderPosition = currentMusic.currentTime * (100 / currentMusic.duration);
         timeSlider.value = sliderPosition;
-        timeSlider.style.background = "linear-gradient(to right, #000000ad " + timeSlider.value + "%, transparent " + timeSlider.value + "%)"; 
+        timeSlider.style.background = "linear-gradient(120deg, #000000ad " + timeSlider.value + "%, transparent " + timeSlider.value + "%)"; 
 
         let currentMinutes = Math.floor(currentMusic.currentTime / 60);
         let currentSeconds = Math.floor(currentMusic.currentTime - currentMinutes * 60);
         let durationMinutes = Math.floor(currentMusic.duration / 60);
         let durationSeconds = Math.floor(currentMusic.duration - durationMinutes*60);
 
-        if(currentMinutes < 10){currentMinutes = '0' + currentMinutes};
-        if(currentSeconds < 10){currentSeconds = '0' + currentSeconds};
-        if(durationMinutes < 10){durationMinutes = '0' + durationMinutes};
-        if(durationSeconds < 10){durationSeconds = '0' + durationSeconds};
+        if(currentMinutes < 10){currentMinutes = '0' + currentMinutes.toString()};
+        if(currentSeconds < 10){currentSeconds = '0' + currentSeconds.toString()};
+        if(durationMinutes < 10){durationMinutes = '0' + durationMinutes.toString()};
+        if(durationSeconds < 10){durationSeconds = '0' + durationSeconds.toString()};
 
         currentTime.textContent = currentMinutes + ':' + currentSeconds;
-        totalTime.textContent = durationSeconds + ':' + durationSeconds;
+        totalTime.textContent = durationMinutes + ':' + durationSeconds;
     }
 }
 
